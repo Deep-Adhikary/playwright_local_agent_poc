@@ -6,6 +6,8 @@ requires-python = ">=3.11"
 dependencies = [
   "langgraph",
   "langchain",
+  "langchain-ollama", 
+  "langchain-community",
   "pydantic>=2",
   "httpx",
   "tenacity",
