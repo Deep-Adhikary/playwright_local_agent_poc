@@ -1,0 +1,475 @@
+give me the tool call spec for the following page state
+
+### Page state
+- Page URL: https://www.google.com/search?q=playwright&sca_esv=16b93b4960e2b313&ei=lfpCab_lH_a3hbIP0fLv6AU&start=0&sa=N&sstk=Af77f_fpZub0qac0sin0we80QAU5oSXhgL9AsNRkM8wF2BEbcgST_oHNed_-r4os5LKtLjPhBoMnw6FB9CmOH5cDPM_FucRCQE-NlfErLff3OblpgQsZ3vWi16Kx8d7Nq0rD&ved=2ahUKEwj_g_CgpMWRAxX2W0EAHVH5G104ChDy0wN6BAgJEAQ&biw=1200&bih=880&dpr=2
+- Page Title: playwright - Google Search
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - heading "Accessibility links" [level=1] [ref=e2]
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e3] [cursor=pointer]
+      - link "Accessibility help" [ref=e4] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en-GB
+      - link "Accessibility feedback" [ref=e5] [cursor=pointer]
+  - generic [ref=e10]:
+    - search [ref=e11]:
+      - generic [ref=e13]:
+        - link "Seasonal holidays 2025" [ref=e15] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&ictx=2&sa=X&ved=0ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQPQgJ
+          - img "Seasonal holidays 2025" [ref=e16]
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - combobox "Search" [ref=e21]: playwright playwright
+            - generic [ref=e22]:
+              - button "Clear" [ref=e24] [cursor=pointer]:
+                - img [ref=e26]
+              - generic [ref=e29]:
+                - button "Search by voice" [ref=e30] [cursor=pointer]:
+                  - img [ref=e31]
+                - button "Search by image" [ref=e33] [cursor=pointer]:
+                  - img [ref=e34]
+          - button "Search" [ref=e36] [cursor=pointer]:
+            - img [ref=e39]
+    - generic [ref=e41]:
+      - button "Settings" [ref=e43] [cursor=pointer]:
+        - img [ref=e46]
+      - generic [ref=e49]:
+        - button "Google apps" [ref=e51] [cursor=pointer]:
+          - img [ref=e52]
+        - link "Sign in" [ref=e56] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3Dplaywright%26sca_esv%3D16b93b4960e2b313%26ei%3DlfpCab_lH_a3hbIP0fLv6AU%26start%3D0%26sa%3DN%26sstk%3DAf77f_fpZub0qac0sin0we80QAU5oSXhgL9AsNRkM8wF2BEbcgST_oHNed_-r4os5LKtLjPhBoMnw6FB9CmOH5cDPM_FucRCQE-NlfErLff3OblpgQsZ3vWi16Kx8d7Nq0rD%26ved%3D2ahUKEwj_g_CgpMWRAxX2W0EAHVH5G104ChDy0wN6BAgJEAQ%26biw%3D1200%26bih%3D880%26dpr%3D2&ec=futura_srp_og_si_72236_p
+  - generic [ref=e58]:
+    - generic [ref=e63]:
+      - heading "Filters and topics" [level=1] [ref=e64]
+      - navigation [ref=e65]:
+        - generic [ref=e69]:
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "AI Mode" [ref=e74] [cursor=pointer]:
+                - /url: /search?q=playwright&sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&aep=1&ntc=1&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ2J8OegQIGRAE
+                - generic [ref=e77]: AI Mode
+            - listitem [ref=e78]:
+              - link "All" [disabled] [ref=e79]:
+                - generic [ref=e81]: All
+            - listitem [ref=e82]:
+              - link "Images" [ref=e83] [cursor=pointer]:
+                - /url: /search?sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&q=playwright&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQtKgLegQIHBAB
+                - generic [ref=e85]: Images
+            - listitem [ref=e86]:
+              - link "Videos" [ref=e87] [cursor=pointer]:
+                - /url: /search?sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&q=playwright&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQtKgLegQIHhAB
+                - generic [ref=e89]: Videos
+            - listitem [ref=e90]:
+              - link "News" [ref=e91] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=playwright&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ0pQJegQIHRAB
+                - generic [ref=e93]: News
+            - listitem [ref=e94]:
+              - link "Shopping" [ref=e95] [cursor=pointer]:
+                - /url: /search?sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&q=playwright&ved=1t:220175&ictx=111
+                - generic [ref=e97]: Shopping
+            - listitem [ref=e98]:
+              - link "Short videos" [ref=e99] [cursor=pointer]:
+                - /url: /search?sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MRo3L_oOc-1oJ7O1RV73dx3MIyCigtuiU2aDjExIvydX85cOq96-7Mxd4KSNCLhHwZjNl1D--59A3Pz1jRAtenzCJ-qzCnOKtvU69k0YYAuhlzxHSrRNQ-gtEYBj8xSow3FJ3v7l7zsi4eO0Nw9mEGcGVLxNQ&q=playwright&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQs6gLegQIHxAB
+                - generic [ref=e101]: Short videos
+            - listitem [ref=e102]:
+              - button "More filters" [ref=e103] [cursor=pointer]:
+                - generic "More filters" [ref=e104]:
+                  - generic [ref=e105]:
+                    - generic [ref=e106]: More
+                    - img [ref=e108]
+          - button "Tools" [ref=e111] [cursor=pointer]:
+            - generic [ref=e113]:
+              - generic [ref=e114]: Tools
+              - img [ref=e116]
+    - main [ref=e125]:
+      - generic [ref=e128]:
+        - heading "Search Results" [level=1] [ref=e129]
+        - generic [ref=e130]:
+          - generic [ref=e133]:
+            - heading "Web result with site links" [level=2] [ref=e134]
+            - generic [ref=e135]:
+              - generic [ref=e139]:
+                - generic [ref=e141]:
+                  - 'link "Playwright: Fast and reliable end-to-end testing for ... Playwright https://playwright.dev" [ref=e143] [cursor=pointer]':
+                    - /url: https://playwright.dev/
+                    - 'heading "Playwright: Fast and reliable end-to-end testing for ..." [level=3] [ref=e144]': "Playwright: Fast and reliable end-to-end testing for ..."
+                    - generic [ref=e150]:
+                      - generic [ref=e152]: Playwright
+                      - generic [ref=e154]: https://playwright.dev
+                  - button "About this result" [ref=e155] [cursor=pointer]:
+                    - img [ref=e158]
+                - generic [ref=e162]:
+                  - emphasis [ref=e163]: Playwright
+                  - text: enables reliable end-to-end testing for modern web apps. · Any browser • Any platform • One API · Resilient • No flaky tests · No trade-offs • No ...
+              - group "Personalised recommendations based on your history" [ref=e164]:
+                - rowgroup [ref=e165]:
+                  - row "Installation Using npm, yarn or pnpm · TypeScript or JavaScript ..." [ref=e166]:
+                    - cell "Installation Using npm, yarn or pnpm · TypeScript or JavaScript ..." [ref=e167]:
+                      - generic [ref=e172]:
+                        - heading "Installation" [level=3] [ref=e173]:
+                          - link "Installation" [ref=e174] [cursor=pointer]:
+                            - /url: https://playwright.dev/docs/intro
+                            - text: Installation
+                        - generic [ref=e177]: Using npm, yarn or pnpm · TypeScript or JavaScript ...
+                  - row "Python Playwright enables reliable end-to-end testing for modern web ..." [ref=e178]:
+                    - cell "Python Playwright enables reliable end-to-end testing for modern web ..." [ref=e179]:
+                      - generic [ref=e184]:
+                        - heading "Python" [level=3] [ref=e185]:
+                          - link "Python" [ref=e186] [cursor=pointer]:
+                            - /url: https://playwright.dev/python/
+                            - text: Python
+                        - generic [ref=e189]: Playwright enables reliable end-to-end testing for modern web ...
+                  - 'row "Writing tests Introduction. Playwright tests are simple: they perform actions ..." [ref=e190]':
+                    - 'cell "Writing tests Introduction. Playwright tests are simple: they perform actions ..." [ref=e191]':
+                      - generic [ref=e196]:
+                        - heading "Writing tests" [level=3] [ref=e197]:
+                          - link "Writing tests" [ref=e198] [cursor=pointer]:
+                            - /url: https://playwright.dev/docs/writing-tests
+                            - text: Writing tests
+                        - generic [ref=e201]: "Introduction. Playwright tests are simple: they perform actions ..."
+                  - row "NET Playwright enables reliable end-to-end testing for modern web ..." [ref=e202]:
+                    - cell "NET Playwright enables reliable end-to-end testing for modern web ..." [ref=e203]:
+                      - generic [ref=e208]:
+                        - heading "NET" [level=3] [ref=e209]:
+                          - link "NET" [ref=e210] [cursor=pointer]:
+                            - /url: https://playwright.dev/dotnet/
+                            - text: NET
+                        - generic [ref=e213]: Playwright enables reliable end-to-end testing for modern web ...
+                  - row "Test generator Run the codegen command and perform actions in the browser ..." [ref=e214]:
+                    - cell "Test generator Run the codegen command and perform actions in the browser ..." [ref=e215]:
+                      - generic [ref=e220]:
+                        - heading "Test generator" [level=3] [ref=e221]:
+                          - link "Test generator" [ref=e222] [cursor=pointer]:
+                            - /url: https://playwright.dev/docs/codegen
+                            - text: Test generator
+                        - generic [ref=e225]: Run the codegen command and perform actions in the browser ...
+                  - row "More results from playwright.dev »" [ref=e227]:
+                    - cell "More results from playwright.dev »" [ref=e228]:
+                      - link "More results from playwright.dev »" [ref=e230] [cursor=pointer]:
+                        - /url: /search?q=playwright+site:playwright.dev&sca_esv=16b93b4960e2b313&biw=1200&bih=880&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQrAN6BAgREAE
+          - generic [ref=e231]:
+            - generic [ref=e235]:
+              - generic [ref=e236]:
+                - heading "People also ask" [level=2] [ref=e237]
+                - button "About this result" [ref=e238] [cursor=pointer]:
+                  - img [ref=e241]
+              - generic [ref=e243]:
+                - button "What is the definition of a playwright?" [ref=e249] [cursor=pointer]:
+                  - generic [ref=e251]: What is the definition of a playwright?
+                  - img [ref=e254]
+                - button "Why is it spelled playwright and not playwrite?" [ref=e263] [cursor=pointer]:
+                  - generic [ref=e265]: Why is it spelled playwright and not playwrite?
+                  - img [ref=e268]
+                - button "What does a playwright do?" [ref=e277] [cursor=pointer]:
+                  - generic [ref=e279]: What does a playwright do?
+                  - img [ref=e282]
+                - button "What exactly is playwright?" [ref=e291] [cursor=pointer]:
+                  - generic [ref=e293]: What exactly is playwright?
+                  - img [ref=e296]
+              - group [ref=e302]:
+                - button "Feedback" [ref=e303] [cursor=pointer]:
+                  - generic [ref=e305]: Feedback
+            - generic [ref=e309]:
+              - generic [ref=e312]:
+                - link "Playwright Wikipedia https://en.wikipedia.org › wiki › Playwright" [ref=e314] [cursor=pointer]:
+                  - /url: https://en.wikipedia.org/wiki/Playwright
+                  - heading "Playwright" [level=3] [ref=e315]: Playwright
+                  - generic [ref=e321]:
+                    - generic [ref=e323]: Wikipedia
+                    - generic [ref=e325]: https://en.wikipedia.org › wiki › Playwright
+                - button "About this result" [ref=e326] [cursor=pointer]:
+                  - img [ref=e329]
+              - generic [ref=e332]:
+                - generic [ref=e333]:
+                  - text: A
+                  - emphasis [ref=e334]: playwright
+                  - text: or dramatist is a person who writes plays which are a form of drama that primarily consists of dialogue between characters
+                - link "Read more" [ref=e335] [cursor=pointer]:
+                  - /url: https://en.wikipedia.org/wiki/Playwright#:~:text=A%20playwright%20or%20dramatist%20is,performance%20rather%20than%20just%20reading.
+            - generic [ref=e339]:
+              - generic [ref=e341]:
+                - heading "Videos" [level=2] [ref=e342]
+                - button "About this result" [ref=e343] [cursor=pointer]:
+                  - img [ref=e346]
+              - generic [ref=e349]:
+                - generic [ref=e356]:
+                  - link "How to automate web app testing with Playwright YouTube InfoWorld 9 Jan 2025" [ref=e358] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=wyQX8agtaI0
+                    - heading "How to automate web app testing with Playwright YouTube InfoWorld 9 Jan 2025" [level=3] [ref=e359]:
+                      - generic [ref=e362]: How to automate web app testing with Playwright
+                      - generic [ref=e366]:
+                        - generic [ref=e367]:
+                          - text: YouTube
+                          - generic [ref=e368]: · InfoWorld
+                        - generic [ref=e369]: 9 Jan 2025
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - text: YouTube
+                                  - generic: · InfoWorld
+                        - button "About this result" [ref=e370] [cursor=pointer]:
+                          - img [ref=e373]
+                  - button "How to automate web app testing with Playwright by InfoWorld on YouTube. Play on Google. 4:31" [ref=e375] [cursor=pointer]:
+                    - generic [ref=e376]:
+                      - img [ref=e382]
+                      - generic [ref=e385]:
+                        - generic [ref=e386]: 4:31
+                        - img [ref=e389]
+                - generic [ref=e397]:
+                  - link "Test Automation Has Never Been This Easy (Playwright ... YouTube Artem Bondar 2 Oct 2025" [ref=e399] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=zfqarh3MOzI
+                    - heading "Test Automation Has Never Been This Easy (Playwright ... YouTube Artem Bondar 2 Oct 2025" [level=3] [ref=e400]:
+                      - generic [ref=e403]: Test Automation Has Never Been This Easy (Playwright ...
+                      - generic [ref=e407]:
+                        - generic [ref=e408]:
+                          - text: YouTube
+                          - generic [ref=e409]: · Artem Bondar
+                        - generic [ref=e410]: 2 Oct 2025
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - text: YouTube
+                                  - generic: · Artem Bondar
+                        - button "About this result" [ref=e411] [cursor=pointer]:
+                          - img [ref=e414]
+                  - button "Test Automation Has Never Been This Easy (Playwright ... by Artem Bondar on YouTube. Play on Google. 10:11" [ref=e416] [cursor=pointer]:
+                    - generic [ref=e417]:
+                      - img [ref=e423]
+                      - generic [ref=e426]:
+                        - generic [ref=e427]: 10:11
+                        - img [ref=e430]
+                - generic [ref=e437]:
+                  - link "Get Started with Playwright and VS Code (2025 edition) YouTube Playwright 4 Aug 2025" [ref=e439] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=WvsLGZnHmzw
+                    - heading "Get Started with Playwright and VS Code (2025 edition) YouTube Playwright 4 Aug 2025" [level=3] [ref=e440]:
+                      - generic [ref=e443]: Get Started with Playwright and VS Code (2025 edition)
+                      - generic [ref=e447]:
+                        - generic [ref=e448]:
+                          - text: YouTube
+                          - generic [ref=e449]: · Playwright
+                        - generic [ref=e450]: 4 Aug 2025
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - text: YouTube
+                                  - generic: · Playwright
+                        - button "About this result" [ref=e451] [cursor=pointer]:
+                          - img [ref=e454]
+                  - button "Get Started with Playwright and VS Code (2025 edition) by Playwright on YouTube. Play on Google. 19:46" [ref=e456] [cursor=pointer]:
+                    - generic [ref=e457]:
+                      - img [ref=e460]
+                      - generic [ref=e463]:
+                        - generic [ref=e464]: 19:46
+                        - img [ref=e467]
+              - link "View all videos" [ref=e471] [cursor=pointer]:
+                - /url: /search?sa=N&sca_esv=16b93b4960e2b313&biw=1200&bih=880&udm=7&q=playwright&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8ccDKAJ6BAhNEAQ
+                - separator [ref=e472]
+                - generic [ref=e473]:
+                  - generic [ref=e474]: View all
+                  - img [ref=e476]
+            - generic [ref=e481]:
+              - generic [ref=e484]:
+                - link "microsoft/playwright GitHub https://github.com › microsoft › playwright" [ref=e486] [cursor=pointer]:
+                  - /url: https://github.com/microsoft/playwright
+                  - heading "microsoft/playwright" [level=3] [ref=e487]: microsoft/playwright
+                  - generic [ref=e493]:
+                    - generic [ref=e495]: GitHub
+                    - generic [ref=e497]: https://github.com › microsoft › playwright
+                - button "About this result" [ref=e498] [cursor=pointer]:
+                  - img [ref=e501]
+              - generic [ref=e504]:
+                - generic [ref=e505]:
+                  - emphasis [ref=e506]: Playwright
+                  - text: is a framework for Web Testing and Automation. It allows testing Chromium, Firefox and WebKit with a single API.
+                  - emphasis [ref=e507]: Playwright
+                  - text: is built to enable ...
+                - link "Read more" [ref=e508] [cursor=pointer]:
+                  - /url: https://github.com/microsoft/playwright#:~:text=Playwright%20is%20a%20framework%20for,ever%2Dgreen%2C%20capable%2C%20reliable%20and%20fast.
+            - generic [ref=e512]:
+              - generic [ref=e515]:
+                - link "Playwright PyPI https://pypi.org › project › playwright" [ref=e517] [cursor=pointer]:
+                  - /url: https://pypi.org/project/playwright/
+                  - heading "Playwright" [level=3] [ref=e518]: Playwright
+                  - generic [ref=e524]:
+                    - generic [ref=e526]: PyPI
+                    - generic [ref=e528]: https://pypi.org › project › playwright
+                - button "About this result" [ref=e529] [cursor=pointer]:
+                  - img [ref=e532]
+              - generic [ref=e535]:
+                - generic [ref=e536]:
+                  - emphasis [ref=e537]: Playwright
+                  - text: is a Python library to automate Chromium, Firefox and WebKit browsers with a single API.
+                  - emphasis [ref=e538]: Playwright
+                  - text: delivers automation that is ever-green, capable, ...
+                - link "Read more" [ref=e539] [cursor=pointer]:
+                  - /url: https://pypi.org/project/playwright/#:~:text=Playwright%20is%20a%20Python%20library,ever%2Dgreen%2C%20capable%2C%20reliable%20and%20fast.
+            - generic [ref=e543]:
+              - generic [ref=e546]:
+                - link "Beginner's Guide to Playwright Automation Checkly https://checklyhq.com › playwright › what-is-playwright" [ref=e548] [cursor=pointer]:
+                  - /url: https://checklyhq.com/docs/learn/playwright/what-is-playwright
+                  - heading "Beginner's Guide to Playwright Automation" [level=3] [ref=e549]: Beginner's Guide to Playwright Automation
+                  - generic [ref=e555]:
+                    - generic [ref=e557]: Checkly
+                    - generic [ref=e559]: https://checklyhq.com › playwright › what-is-playwright
+                - button "About this result" [ref=e560] [cursor=pointer]:
+                  - img [ref=e563]
+              - generic [ref=e566]:
+                - generic [ref=e567]:
+                  - text: What is
+                  - emphasis [ref=e568]: Playwright
+                  - text: "?"
+                  - emphasis [ref=e569]: Playwright
+                  - text: is an open-source framework for cross-browser automation and end-to-end web application testing. It was designed to be a fast ...
+                - link "Read more" [ref=e570] [cursor=pointer]:
+                  - /url: https://checklyhq.com/docs/learn/playwright/what-is-playwright#:~:text=What%20is%20Playwright%3F,designed%20to%20be%20a%20fast
+            - generic [ref=e574]:
+              - generic [ref=e577]:
+                - link "Microsoft Playwright Testing Microsoft Azure https://azure.microsoft.com › en-us › products › playwri..." [ref=e579] [cursor=pointer]:
+                  - /url: https://azure.microsoft.com/en-us/products/playwright-testing
+                  - heading "Microsoft Playwright Testing" [level=3] [ref=e580]: Microsoft Playwright Testing
+                  - generic [ref=e586]:
+                    - generic [ref=e588]: Microsoft Azure
+                    - generic [ref=e590]: https://azure.microsoft.com › en-us › products › playwri...
+                - button "About this result" [ref=e591] [cursor=pointer]:
+                  - img [ref=e594]
+              - generic [ref=e598]:
+                - text: Streamline your continuous integration workflow through scalable cloud-based browser testing and reporting insights with Microsoft
+                - emphasis [ref=e599]: Playwright
+                - text: Testing ...
+            - generic [ref=e603]:
+              - generic [ref=e606]:
+                - 'link "Playwright Automation Framework: Tutorial BrowserStack https://www.browserstack.com › Guide" [ref=e608] [cursor=pointer]':
+                  - /url: https://www.browserstack.com/guide/playwright-tutorial
+                  - 'heading "Playwright Automation Framework: Tutorial" [level=3] [ref=e609]': "Playwright Automation Framework: Tutorial"
+                  - generic [ref=e615]:
+                    - generic [ref=e617]: BrowserStack
+                    - generic [ref=e619]: https://www.browserstack.com › Guide
+                - button "About this result" [ref=e620] [cursor=pointer]:
+                  - img [ref=e623]
+              - generic [ref=e626]:
+                - generic [ref=e627]:
+                  - emphasis [ref=e628]: Playwright
+                  - text: is a solid test automation framework that allows you to perform end-to-end testing across major browsers. It is equipped with multiple features, such ...
+                - link "Read more" [ref=e629] [cursor=pointer]:
+                  - /url: https://www.browserstack.com/guide/playwright-tutorial#:~:text=Playwright%20is%20a%20solid%20test,so%20on%2C%20supported%20with%20BrowserStack.
+      - generic [ref=e631]:
+        - generic [ref=e636]:
+          - heading "People also search for" [level=2] [ref=e638]
+          - generic [ref=e640]:
+            - generic [ref=e641]:
+              - link "Playwright pricing" [ref=e645] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+pricing&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAgvEAE
+                - generic [ref=e646]:
+                  - generic [ref=e651]: Playwright pricing
+                  - img [ref=e655]
+              - link "Playwright automation tool" [ref=e660] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+automation+tool&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAhIEAE
+                - generic [ref=e661]:
+                  - generic [ref=e666]: Playwright automation tool
+                  - img [ref=e670]
+              - link "Playwright vs Selenium" [ref=e675] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+vs+Selenium&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAhBEAE
+                - generic [ref=e676]:
+                  - generic [ref=e681]: Playwright vs Selenium
+                  - img [ref=e685]
+              - link "Playwright vs Cypress" [ref=e690] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+vs+Cypress&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAg6EAE
+                - generic [ref=e691]:
+                  - generic [ref=e696]: Playwright vs Cypress
+                  - img [ref=e700]
+            - generic [ref=e702]:
+              - link "Playwright Python" [ref=e706] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+Python&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAg5EAE
+                - generic [ref=e707]:
+                  - generic [ref=e712]: Playwright Python
+                  - img [ref=e716]
+              - link "Playwright examples" [ref=e721] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+examples&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAg4EAE
+                - generic [ref=e722]:
+                  - generic [ref=e727]: Playwright examples
+                  - img [ref=e731]
+              - link "Playwrite or playwright" [ref=e736] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwrite+or+playwright&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAg2EAE
+                - generic [ref=e737]:
+                  - generic [ref=e742]: Playwrite or playwright
+                  - img [ref=e746]
+              - link "Playwright - npm" [ref=e751] [cursor=pointer]:
+                - /url: /search?sca_esv=16b93b4960e2b313&biw=1200&bih=880&q=Playwright+-+npm&sa=X&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ1QJ6BAgwEAE
+                - generic [ref=e752]:
+                  - generic [ref=e757]: Playwright - npm
+                  - img [ref=e761]
+        - navigation [ref=e763]:
+          - heading "Page navigation" [level=1] [ref=e764]
+          - text: "1"
+          - link "Page 2" [ref=e767] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=10&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAE
+            - text: "2"
+          - link "Page 3" [ref=e769] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=20&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAG
+            - text: "3"
+          - link "Page 4" [ref=e771] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=30&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAI
+            - text: "4"
+          - link "Page 5" [ref=e773] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=40&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAK
+            - text: "5"
+          - link "Page 6" [ref=e775] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=50&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAM
+            - text: "6"
+          - link "Page 7" [ref=e777] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=60&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAO
+            - text: "7"
+          - link "Page 8" [ref=e779] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=70&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAQ
+            - text: "8"
+          - link "Page 9" [ref=e781] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=80&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAS
+            - text: "9"
+          - link "Page 10" [ref=e783] [cursor=pointer]:
+            - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=90&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8tMDegQILRAU
+            - text: "10"
+          - heading "Next" [level=2] [ref=e785]:
+            - link "Next" [ref=e786] [cursor=pointer]:
+              - /url: /search?q=playwright&sca_esv=16b93b4960e2b313&biw=1200&bih=880&ei=nPpCacnAIt2ihbIPufq6wA0&start=10&sa=N&sstk=Af77f_c8ereJD_OKakXNqhkw446lKIoiQFHfDSUAjyxvJD4bCDQZAIGwEt1Wi4XHbFGuFAR_oDfH9C73SDXg8ZiLmXr0GeAD_GUV6g&ved=2ahUKEwjJ_p2kpMWRAxVdUUEAHTm9DtgQ8NMDegQILRAW
+              - generic [ref=e788]: Next
+      - navigation
+    - contentinfo [ref=e789]:
+      - heading "Footer links" [level=1] [ref=e790]
+      - generic [ref=e794]:
+        - generic [ref=e796]:
+          - text: United Kingdom
+          - generic [ref=e798]:
+            - button "Greater London - Based on your past activity" [ref=e800] [cursor=pointer]:
+              - generic [ref=e801]: Greater London
+              - generic [ref=e803]:
+                - text: "-"
+                - generic [ref=e804]: Based on your past activity
+            - text: "-"
+            - button "Update location" [ref=e806] [cursor=pointer]: Update location
+        - generic [ref=e809]:
+          - link "Help" [ref=e810] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en-GB&fg=1
+          - link "Send feedback" [ref=e811] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e812] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en-GB&fg=1
+          - link "Terms" [ref=e813] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en-GB&fg=1
+```
