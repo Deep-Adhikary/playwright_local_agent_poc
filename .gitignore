@@ -1,4 +1,5 @@
 .ruff_cache
 .venv/
 __pypackages__/
+__pycache__/
 uv.lock

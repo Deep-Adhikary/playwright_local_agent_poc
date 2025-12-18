@@ -2,24 +2,6 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import Any
-
-
-# ---------- Model ----------
-@dataclass
-class Node:
-    raw: str
-    indent: int
-    role: str = "unknown"
-    name: str | None = None
-    ref: str | None = None
-    disabled: bool = False
-    attrs: dict[str, Any] = field(default_factory=dict)
-    children: list[Node] = field(default_factory=list)
-
-    def add_child(self, n: Node) -> None:
-        self.children.append(n)
-
 
 # ---------- Regex helpers ----------
 LINE_RE = re.compile(r"^(?P<indent>\s*)-\s+(?P<body>.*)$")
@@ -31,6 +13,41 @@ URL_RE = re.compile(r"^/url:\s*(?P<url>\S+)\s*$")
 
 # text nodes show like: - text: foo
 TEXT_KV_RE = re.compile(r"^text:\s*(?P<text>.*)$")
+
+# ---------- Utilities ----------
+INTERACTIVE_ROLES = {
+    "button",
+    "link",
+    "combobox",
+    "textbox",
+    "searchbox",
+    "checkbox",
+    "radio",
+    "option",
+    "menuitem",
+    "tab",
+}
+
+LANDMARK_ROLES = {"main", "navigation", "contentinfo"}
+
+REPEATER_ITEM_ROLES = {"row", "listitem", "group"}  # generic, but works surprisingly often
+HEADING_ROLE = "heading"
+
+
+# ---------- Model ----------
+@dataclass
+class Node:
+    raw: str
+    indent: int
+    role: str = "unknown"
+    name: str | None = None
+    ref: str | None = None
+    disabled: bool = False
+    attrs: dict[str, any] = field(default_factory=dict)
+    children: list[Node] = field(default_factory=list)
+
+    def add_child(self, n: Node) -> None:
+        self.children.append(n)
 
 
 def parse_snapshot(snapshot_text: str) -> Node:
@@ -80,26 +97,6 @@ def parse_snapshot(snapshot_text: str) -> Node:
         stack.append(node)
 
     return root
-
-
-# ---------- Utilities ----------
-INTERACTIVE_ROLES = {
-    "button",
-    "link",
-    "combobox",
-    "textbox",
-    "searchbox",
-    "checkbox",
-    "radio",
-    "option",
-    "menuitem",
-    "tab",
-}
-
-LANDMARK_ROLES = {"main", "navigation", "contentinfo"}
-
-REPEATER_ITEM_ROLES = {"row", "listitem", "group"}  # generic, but works surprisingly often
-HEADING_ROLE = "heading"
 
 
 def iter_nodes(root: Node) -> list[Node]:

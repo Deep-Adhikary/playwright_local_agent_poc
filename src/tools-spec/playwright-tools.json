@@ -1,0 +1,627 @@
+{
+    "playwright_mcp_tools": {
+        "version": "1.0.0",
+        "description": "Canonical list of all Playwright MCP tools for browser automation",
+        "tools": [
+            {
+                "tool_id": "browser_click",
+                "title": "Click",
+                "description": "Perform click on a web page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_click"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["element", "ref"],
+                    "properties": {
+                        "element": {
+                            "type": "string",
+                            "description": "Human-readable element description used to obtain permission to interact with the element"
+                        },
+                        "ref": {
+                            "type": "string",
+                            "description": "Exact target element reference from the page snapshot"
+                        },
+                        "button": {
+                            "type": "string",
+                            "enum": ["left", "right", "middle"],
+                            "default": "left",
+                            "description": "Button to click"
+                        },
+                        "doubleClick": {
+                            "type": "boolean",
+                            "description": "Whether to perform a double click instead of a single click"
+                        },
+                        "modifiers": {
+                            "type": "array",
+                            "items": {"enum": ["Alt", "Control", "ControlOrMeta", "Meta", "Shift"], "type": "string"},
+                            "description": "Modifier keys to press"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Resulting page state after the click action"
+                },
+                "tags": ["ui", "interaction", "click"],
+                "aliases": ["tap", "press"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_close",
+                "title": "Close Page",
+                "description": "Close the browser page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_close"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {}
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Confirmation of page closure"
+                },
+                "tags": ["browser", "lifecycle", "close"],
+                "aliases": ["quit", "exit"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_console_messages",
+                "title": "Console Messages",
+                "description": "Returns all console messages from the browser",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_console_messages"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "level": {
+                            "type": "string",
+                            "enum": ["error", "warning", "info", "debug"],
+                            "default": "info",
+                            "description": "Level of console messages to return"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "array",
+                    "description": "List of console messages with their levels and content"
+                },
+                "tags": ["debugging", "console", "logs"],
+                "aliases": ["logs", "debug"],
+                "read_only": true
+            },
+            {
+                "tool_id": "browser_drag",
+                "title": "Drag and Drop",
+                "description": "Perform drag and drop between two elements",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_drag"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["startElement", "startRef", "endElement", "endRef"],
+                    "properties": {
+                        "startElement": {"type": "string", "description": "Human-readable source element description"},
+                        "startRef": {
+                            "type": "string",
+                            "description": "Exact source element reference from the page snapshot"
+                        },
+                        "endElement": {"type": "string", "description": "Human-readable target element description"},
+                        "endRef": {
+                            "type": "string",
+                            "description": "Exact target element reference from the page snapshot"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of the drag and drop operation"
+                },
+                "tags": ["ui", "interaction", "drag", "drop", "drag and drop"],
+                "aliases": ["move", "transfer"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_evaluate",
+                "title": "Evaluate JavaScript",
+                "description": "Evaluate JavaScript expression on page or element",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_evaluate"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["function"],
+                    "properties": {
+                        "function": {
+                            "type": "string",
+                            "description": "JavaScript function to execute: () => { /* code */ } or (element) => { /* code */ }"
+                        },
+                        "element": {"type": "string", "description": "Human-readable element description (optional)"},
+                        "ref": {
+                            "type": "string",
+                            "description": "Exact target element reference (required if element provided)"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "any",
+                    "description": "Result of the JavaScript evaluation"
+                },
+                "tags": ["javascript", "execution", "evaluate", "run script", "run js", "run javascript"],
+                "aliases": ["execute", "run_js"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_file_upload",
+                "title": "File Upload",
+                "description": "Upload one or multiple files",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_file_upload"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "paths": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "Absolute paths to files to upload"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of the file upload operation"
+                },
+                "tags": ["file", "upload", "input"],
+                "aliases": ["attach", "select_files", "upload_files"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_fill_form",
+                "title": "Fill Form",
+                "description": "Fill multiple form fields",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_fill_form"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["fields"],
+                    "properties": {
+                        "fields": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": ["name", "type", "ref", "value"],
+                                "properties": {
+                                    "name": {"type": "string", "description": "Human-readable field name"},
+                                    "type": {
+                                        "type": "string",
+                                        "enum": ["textbox", "checkbox", "radio", "combobox", "slider"],
+                                        "description": "Type of the field"
+                                    },
+                                    "ref": {"type": "string", "description": "Exact target field reference"},
+                                    "value": {"type": "string", "description": "Value to fill in the field"}
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of the form filling operation"
+                },
+                "tags": ["form", "input", "fill"],
+                "aliases": ["complete_form", "enter_data", "enter details"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_handle_dialog",
+                "title": "Handle Dialog",
+                "description": "Handle browser dialogs (alert, confirm, prompt)",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_handle_dialog"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["accept"],
+                    "properties": {
+                        "accept": {"type": "boolean", "description": "Whether to accept the dialog"},
+                        "promptText": {"type": "string", "description": "Text for prompt dialog (if applicable)"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of dialog handling"
+                },
+                "tags": ["dialog", "alert", "confirm"],
+                "aliases": ["accept_alert", "dismiss_dialog", "accept dialog"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_hover",
+                "title": "Hover",
+                "description": "Hover over element on page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_hover"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["element", "ref"],
+                    "properties": {
+                        "element": {"type": "string", "description": "Human-readable element description"},
+                        "ref": {"type": "string", "description": "Exact target element reference"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of the hover action"
+                },
+                "tags": ["ui", "interaction", "hover"],
+                "aliases": ["mouseover", "focus"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_install",
+                "title": "Install Browser",
+                "description": "Install the browser specified in the config",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_install"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {}
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of browser installation"
+                },
+                "tags": ["setup", "install", "browser"],
+                "aliases": ["setup_browser", "install chrome", "install firefox"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_navigate",
+                "title": "Navigate",
+                "description": "Navigate to a URL",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_navigate"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["url"],
+                    "properties": {
+                        "url": {"type": "string", "description": "The URL to navigate to. Must be a valid URL."}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of navigation with page accessibility snapshot"
+                },
+                "tags": ["navigation", "url", "goto"],
+                "aliases": ["goto", "visit", "open"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_navigate_back",
+                "title": "Navigate Back",
+                "description": "Go back to the previous page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_navigate_back"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {}
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of navigation back. page accessibility snapshot"
+                },
+                "tags": ["navigation", "back", "go back", "back"],
+                "aliases": ["back", "previous"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_network_requests",
+                "title": "Network Requests",
+                "description": "Returns all network requests since loading the page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_network_requests"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "includeStatic": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Whether to include static resources"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "array",
+                    "description": "List of network requests with details"
+                },
+                "tags": ["network", "requests", "monitoring"],
+                "aliases": ["requests", "traffic"],
+                "read_only": true
+            },
+            {
+                "tool_id": "browser_press_key",
+                "title": "Press Key",
+                "description": "Press a key on the keyboard",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_press_key"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["key"],
+                    "properties": {
+                        "key": {
+                            "type": "string",
+                            "description": "Name of the key to press (e.g., 'ArrowLeft', 'Enter', 'a')"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of key press along with current page snapshot"
+                },
+                "tags": ["keyboard", "input", "key"],
+                "aliases": ["keypress", "key"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_resize",
+                "title": "Resize Browser",
+                "description": "Resize the browser window",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_resize"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["width", "height"],
+                    "properties": {
+                        "width": {"type": "number", "description": "Width of the browser window"},
+                        "height": {"type": "number", "description": "Height of the browser window"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of window resize"
+                },
+                "tags": ["browser", "resize", "viewport"],
+                "aliases": ["set_viewport", "window_size"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_run_code",
+                "title": "Run Playwright Code",
+                "description": "Run Playwright code snippet",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_run_code"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["code"],
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "A JavaScript function containing Playwright code to execute. It will be invoked with a single argument, page, which you can use for any page interaction. For example: `async (page) => { await page.getByRole('button', { name: 'Submit' }).click(); return await page.title(); }`"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "any",
+                    "description": "Result of the Playwright code execution"
+                },
+                "tags": ["playwright", "code", "execution"],
+                "aliases": ["execute_playwright", "run_script"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_select_option",
+                "title": "Select Option",
+                "description": "Select an option in a dropdown",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_select_option"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["element", "ref", "values"],
+                    "properties": {
+                        "element": {"type": "string", "description": "Human-readable element description"},
+                        "ref": {"type": "string", "description": "Exact target element reference"},
+                        "values": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "Array of values to select"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of option selection"
+                },
+                "tags": ["select", "dropdown", "option"],
+                "aliases": ["choose", "pick", "select option", "select from dropdown", "select value", "select item"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_snapshot",
+                "title": "Accessibility Snapshot",
+                "description": "Capture accessibility snapshot of the current page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_snapshot"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "filename": {"type": "string", "description": "Save snapshot to markdown file"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Accessibility snapshot content or file path"
+                },
+                "tags": ["accessibility", "snapshot", "a11y"],
+                "aliases": ["a11y_snapshot", "capture", "snapshot", "current page state", "state"],
+                "read_only": true
+            },
+            {
+                "tool_id": "browser_tabs",
+                "title": "Tab Management",
+                "description": "List, create, close, or select browser tabs",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_tabs"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["action"],
+                    "properties": {
+                        "action": {
+                            "type": "string",
+                            "enum": ["list", "new", "close", "select"],
+                            "description": "Operation to perform"
+                        },
+                        "index": {"type": "number", "description": "Tab index for close/select operations"}
+                    }
+                },
+                "output_schema": {
+                    "type": "any",
+                    "description": "Result of tab operation (list for 'list', confirmation for others)"
+                },
+                "tags": ["tabs", "browser", "management"],
+                "aliases": ["tab", "window"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_take_screenshot",
+                "title": "Screenshot",
+                "description": "Take a screenshot of the current page",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_take_screenshot"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "element": {"type": "string", "description": "Human-readable element description (optional)"},
+                        "ref": {
+                            "type": "string",
+                            "description": "Exact target element reference (required if element provided)"
+                        },
+                        "filename": {"type": "string", "description": "File name to save screenshot"},
+                        "fullPage": {"type": "boolean", "description": "Take full page screenshot"},
+                        "type": {
+                            "type": "string",
+                            "enum": ["png", "jpeg"],
+                            "default": "png",
+                            "description": "Image format"
+                        }
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Screenshot file path or base64 data"
+                },
+                "tags": ["screenshot", "image", "capture"],
+                "aliases": ["capture", "image"],
+                "read_only": true
+            },
+            {
+                "tool_id": "browser_type",
+                "title": "Type Text",
+                "description": "Type text into editable element",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_type"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["element", "ref", "text"],
+                    "properties": {
+                        "element": {"type": "string", "description": "Human-readable element description"},
+                        "ref": {"type": "string", "description": "Exact target element reference"},
+                        "text": {"type": "string", "description": "Text to type into the element"},
+                        "slowly": {"type": "boolean", "description": "Type one character at a time"},
+                        "submit": {"type": "boolean", "description": "Press Enter after typing"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of typing action"
+                },
+                "tags": ["input", "text", "type"],
+                "aliases": ["enter", "input"],
+                "read_only": false
+            },
+            {
+                "tool_id": "browser_wait_for",
+                "title": "Wait For",
+                "description": "Wait for text to appear/disappear or specified time to pass",
+                "mcp": {
+                    "server": "playwright",
+                    "method": "browser_wait_for"
+                },
+                "input_schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "text": {"type": "string", "description": "Text to wait for to appear"},
+                        "textGone": {"type": "string", "description": "Text to wait for to disappear"},
+                        "time": {"type": "number", "description": "Time to wait in seconds"}
+                    }
+                },
+                "output_schema": {
+                    "type": "string",
+                    "description": "Result of wait operation"
+                },
+                "tags": ["wait", "synchronization", "timing"],
+                "aliases": ["delay", "pause"],
+                "read_only": false
+            }
+        ]
+    }
+}

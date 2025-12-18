@@ -1,46 +1,66 @@
-from typing import TypedDict
+import re
 
-from snapshot_parser import *
+from pydantic import BaseModel, Field
+
+from src.libs.snapshot_manager.snapshot_parser import (
+    HEADING_ROLE,
+    INTERACTIVE_ROLES,
+    LANDMARK_ROLES,
+    REPEATER_ITEM_ROLES,
+    Node,
+    ancestors_with_context,
+    first_salient_text,
+    iter_nodes,
+    parse_snapshot,
+)
 
 
-class Action(TypedDict, total=False):
+class Action(BaseModel):
     action_id: str
     role: str
-    name: str
     ref: str
-    url: str
-    disabled: bool
+    name: str | None = None
+    url: str | None = None
+    disabled: bool = False
+
+    model_config = {"extra": "forbid", "frozen": True}
 
 
-class Item(TypedDict, total=False):
+class Item(BaseModel):
     item_id: str
-    item_key: str
-    container_role: str
-    actions: List[Action]
+    actions: list[Action] = Field(default_factory=list)
+
+    item_key: str | None = None
+    container_role: str | None = None
+
+    model_config = {"extra": "forbid", "frozen": True}
 
 
-class Section(TypedDict, total=False):
+class Section(BaseModel):
     section_id: str
-    landmark: str
-    heading_path: List[str]
-    items: List[Item]
+    items: list[Item] = Field(default_factory=list)
+
+    landmark: str | None = None
+    heading_path: list[str] = Field(default_factory=list)
+
+    model_config = {"extra": "forbid", "frozen": True}
 
 
-def heading_path_for(ancs: List[Node]) -> List[str]:
+def heading_path_for(ancs: list[Node]) -> list[str]:
     # collect headings from ancestors; keep last few
     hp = [a.name for a in ancs if a.role == HEADING_ROLE and a.name]
     # de-noise: keep last 3 headings
     return hp[-3:]
 
 
-def nearest_landmark(ancs: List[Node]) -> Optional[Node]:
+def nearest_landmark(ancs: list[Node]) -> Node | None:
     for a in reversed(ancs):
         if a.role in LANDMARK_ROLES:
             return a
     return None
 
 
-def nearest_item_container(ancs: List[Node]) -> Optional[Node]:
+def nearest_item_container(ancs: list[Node]) -> Node | None:
     # nearest row/listitem/group ancestor
     for a in reversed(ancs):
         if a.role in REPEATER_ITEM_ROLES:
@@ -48,13 +68,13 @@ def nearest_item_container(ancs: List[Node]) -> Optional[Node]:
     return None
 
 
-def build_context_model(snapshot_text: str) -> Dict[str, Any]:
+def build_context_model(snapshot_text: str) -> dict[str, any]:
     root = parse_snapshot(snapshot_text)
     chains = ancestors_with_context(root)
 
     # key: (section_id, item_node_id) -> item
-    sections: Dict[str, Section] = {}
-    item_map: Dict[Tuple[str, int], Item] = {}
+    sections: dict[str, Section] = {}
+    item_map: dict[tuple[str, int], Item] = {}
 
     for n in iter_nodes(root):
         if n.role not in INTERACTIVE_ROLES:
@@ -109,12 +129,12 @@ def build_context_model(snapshot_text: str) -> Dict[str, Any]:
 
 
 def trim_for_llm(
-    model: Dict[str, Any],
+    model: dict[str, any],
     task: str,
     max_sections: int = 3,
     max_items: int = 8,
     max_actions: int = 8,
-) -> Dict[str, Any]:
+) -> dict[str, any]:
     """
     A simple relevance trim:
     - keep sections whose heading_path matches task keywords
@@ -132,7 +152,7 @@ def trim_for_llm(
         sections, key=lambda sec: score_text(" ".join(sec.get("heading_path", []))), reverse=True
     )[:max_sections]
 
-    trimmed_sections: List[Section] = []
+    trimmed_sections: list[Section] = []
     for sec in scored_sections:
         items = sec.get("items", [])
         # score items by item_key
@@ -140,7 +160,7 @@ def trim_for_llm(
             items, key=lambda it: score_text(it.get("item_key", "")), reverse=True
         )[:max_items]
 
-        new_items: List[Item] = []
+        new_items: list[Item] = []
         for it in scored_items:
             acts = it.get("actions", [])
             # score actions by name + url
@@ -157,7 +177,7 @@ def trim_for_llm(
 
 
 if __name__ == "__main__":
-    with open("output.format.md") as f:
+    with open("scratchpad/output.format.md") as f:
         snapshot_text = f.read()
         model = build_context_model(snapshot_text)
         prompt_payload = trim_for_llm(
